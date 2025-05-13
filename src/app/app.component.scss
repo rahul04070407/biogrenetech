@@ -437,6 +437,7 @@ header {
             font-size: 18px;
             margin-bottom: 20px; // better vertical spacing
             color: #222;
+            justify-content: center;
 
             i {
                 color: #1a8e3c;
@@ -449,7 +450,8 @@ header {
             }
 
             strong {
-                font-weight: 600;
+                font-weight: 500;
+                color: #1a8e3c;
             }
         }
     }
