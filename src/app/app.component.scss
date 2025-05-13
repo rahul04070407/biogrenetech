@@ -369,3 +369,218 @@ header {
         }
     }
 }
+
+.why-it-matters {
+    text-align: center;
+    padding: 60px 20px;
+
+    h2 {
+        letter-spacing: 5px;
+        font-weight: 500;
+        color: #2f593c;
+        margin-bottom: 40px;
+    }
+
+    .message-box {
+        background-color: #a6d9a6;
+        color: #1b1b1b;
+        padding: 15px 20px;
+        margin: 10px auto;
+        width: 80%;
+        max-width: 600px;
+        border-radius: 5px;
+        font-size: 16px;
+
+        strong {
+            font-weight: 600;
+        }
+    }
+}
+
+.bio-energy-info {
+    background-color: #f4f4f4;
+    padding: 80px 20px;
+    font-family: 'Oswald', sans-serif;
+
+    h3 {
+        font-size: 28px;
+        font-weight: 600;
+        color: #2f593c;
+        text-align: center;
+        margin-bottom: 20px;
+
+        .highlight {
+            color: #1a8e3c;
+            font-weight: 700;
+        }
+    }
+
+    .description {
+        font-size: 16px;
+        color: #444;
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 40px;
+        line-height: 1.7;
+    }
+
+    .features {
+        list-style: none;
+        padding: 0;
+        max-width: 520px;
+        margin: 0 auto;
+
+        li {
+            display: flex;
+            align-items: flex-end; // aligns icon with first line of text
+            gap: 10px;
+            font-size: 18px;
+            margin-bottom: 20px; // better vertical spacing
+            color: #222;
+
+            i {
+                color: #1a8e3c;
+                font-size: 1.2rem;
+                margin-top: 3px; // slight adjustment to vertically align with text baseline
+            }
+
+            span {
+                line-height: 1.4;
+            }
+
+            strong {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+
+
+.accordion-button {
+    background-color: transparent;
+    box-shadow: none;
+    padding-right: 2.5rem;
+    position: relative;
+
+    &::after {
+        background-color: #000;
+        color: #fff;
+        background-image: none !important;
+        font-family: "bootstrap-icons" !important;
+        content: "\f282";
+        font-style: normal;
+        font-weight: normal;
+        margin-left: auto;
+        transition: transform 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    &.collapsed::after {
+        content: "\f285";
+    }
+
+}
+
+
+
+.accordion-item {
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+.accordion-body {
+    padding-left: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.footer {
+    background-color: #000; // Dark background color
+    color: white;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    .container {
+        .row {
+            display: flex;
+            flex-wrap: wrap; // Ensures the columns wrap when needed
+
+            .col-md-3 {
+                flex: 1 1 25%; // Ensures each column takes up 25% of space on medium screens and above
+                padding: 0 1rem;
+                margin-bottom: 1rem;
+
+                h6 {
+                    font-weight: bold;
+                }
+
+                p,
+                ul {
+                    font-size: 0.875rem;
+                }
+
+                ul {
+                    list-style-type: none;
+                    padding-left: 0;
+
+                    li {
+                        margin-bottom: 0.5rem;
+
+                        a {
+                            color: white;
+                            text-decoration: none;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+
+                .d-flex {
+                    gap: 0.5rem; // Smaller gap between icons
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+
+                    a {
+                        font-size: 1.25rem;
+                        color: white;
+                        margin-bottom: 0.5rem;
+
+                        &:hover {
+                            color: #17a2b8;
+                        }
+                    }
+                }
+            }
+        }
+
+        hr {
+            border-color: #dee2e6;
+        }
+
+        .small {
+            font-size: 0.875rem;
+        }
+
+        .justify-content-between {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+
+            .text-white {
+                text-decoration: none;
+            }
+
+            .text-white:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
