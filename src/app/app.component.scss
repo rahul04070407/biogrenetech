@@ -61,6 +61,7 @@ header {
     .hero-wrapper {
         max-width: 1200px;
         text-align: center;
+        margin-top: 20px;
     }
 
     .hero-text {
@@ -78,7 +79,7 @@ header {
             font-family: 'Ordax Bold', sans-serif;
             font-size: 70px;
             color: #2F7033;
-            font-weight: 900;
+            font-weight: 800;
             margin-top: 10px;
 
             line-height: 1.1;
@@ -182,19 +183,14 @@ header {
 
         .bio-content {
             h2 {
-                font-size: 24px; // slightly reduced to match doc
+                font-size: 22px; // slightly reduced to match doc
                 color: #2f7033;
-                font-weight: 900;
-                font-family: 'Ordax Bold', sans-serif;
+                font-weight: 600;
+                font-family: 'Times New Roman', Times, serif;
                 margin: 0 0 10px 0;
             }
 
-            h3 {
-                font-size: 20px;
-                color: #000;
-                font-weight: 600;
-                margin: 0 0 20px 0;
-            }
+
 
             p {
                 font-size: 15px;
@@ -228,19 +224,19 @@ header {
 
         .impact-title {
             h2 {
-                font-size: 50px;
+                font-size: 45px;
                 font-family: 'Ordax Bold', sans-serif;
                 color: #2f7033;
-                font-weight: 900;
+                font-weight: 800;
                 margin-bottom: 5px;
             }
 
             h4 {
                 font-size: 16px;
                 letter-spacing: 3px;
-                color: #6b6b6b;
+                color: #a2a6aa;
                 margin-top: 0;
-                font-weight: bold;
+                font-weight: 500;
             }
         }
 
@@ -262,7 +258,7 @@ header {
 
                 strong {
                     font-weight: 700;
-                    color: #2f7033;
+                    // color: #2f7033;
                 }
             }
         }
@@ -365,8 +361,8 @@ header {
                     background: #ffffff;
                     border: 2px solid #2f7033;
 
-                    h4{
-                        color:#2f7033 ;
+                    h4 {
+                        color: #2f7033;
                     }
                 }
             }
