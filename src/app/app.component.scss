@@ -64,7 +64,7 @@ header {
     }
 
     .hero-text {
-        // margin-bottom: 30px;
+        margin-bottom: 40px;
 
         p {
             font-size: 14px;
@@ -91,7 +91,7 @@ header {
     .hero-visuals {
         position: relative;
         display: inline-block;
-        top: -78px;
+        top: -54px;
         left: -20px;
 
         .truck-img {
@@ -216,3 +216,153 @@ header {
         }
     }
 }
+
+.biogrenetech-impact {
+  background-color: #def2e1;
+  text-align: center;
+  padding: 30px 10px;
+
+  .impact-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+
+    .impact-title {
+      h2 {
+        font-size: 50px;
+        font-family: 'Ordax Bold', sans-serif;
+        color: #2f7033;
+        font-weight: 900;
+        margin-bottom: 5px;
+      }
+
+      h4 {
+        font-size: 16px;
+        letter-spacing: 3px;
+        color: #6b6b6b;
+        margin-top: 0;
+        font-weight: bold;
+      }
+    }
+
+    .impact-image {
+      img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+      }
+    }
+
+    .impact-desc {
+      p {
+        font-size: 15px;
+        color: #333;
+        line-height: 1.7;
+        max-width: 500px;
+        margin: 0 auto 24px;
+
+        strong {
+          font-weight: 700;
+          color: #2f7033;
+        }
+      }
+    }
+  }
+}
+
+.features-wrapper {
+  padding: 60px 20px;
+  background: #ffffff;
+
+  h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-align: center;
+
+    .green {
+      color: #2f7033;
+      font-weight: 700;
+    }
+
+    .bold {
+      font-weight: 700;
+      color: #000000;
+    }
+  }
+
+  .features-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .features-image {
+      flex: 1 1 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+
+      .circle-bg {
+        width: 300px; // smaller than before
+        height: 300px;
+        background: #f2f2f2;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        img {
+          width: 100%; // fit snugly inside circle
+          height: auto;
+          max-width: 280px; // keeps it proportional
+          object-fit: cover;
+        }
+      }
+    }
+
+    .features-content {
+      flex: 1 1 50%;
+      padding: 0 40px;
+      text-align: left;
+
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 25px;
+        padding: 15px;
+        border-radius: 10px;
+        transition: background 0.3s ease, border 0.3s ease;
+
+        i.bi {
+          font-size: 24px;
+          margin-right: 15px;
+          color: #2f7033;
+          flex-shrink: 0;
+          margin-top: 4px;
+        }
+
+        h4 {
+          margin: 0 0 6px;
+          font-weight: 700;
+          font-size: 17px;
+          color: #000000;
+        }
+
+        p {
+          margin: 0;
+          font-size: 14px;
+          color: #444444;
+        }
+
+        &.highlight {
+          background: #f0fff4;
+          border: 2px solid #2f7033;
+        }
+      }
+    }
+  }
+}
+
