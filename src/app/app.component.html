@@ -1,19 +1,58 @@
-<!-- HEADER -->
-<header>
-  <div class="header-container">
-    <div class="logo-wrapper">
-      <img src="/images/logo1.png" alt="Biogrenetech Logo" />
+<header class="custom-header">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-6 col-sm-4 d-flex justify-content-start justify-content-sm-end">
+        <img src="images/logo1.png" alt="Logo" class="logo">
+      </div>
+      <div class="col-6 text-end d-sm-none justify-content-end">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"
+          aria-controls="offcanvasMenu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+      <div class="col-12 col-md-auto d-none d-md-flex justify-content-center">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <nav>
-      <a href="#">HOME</a>
-      <a href="#">ABOUT US</a>
-      <a href="#">SERVICES</a>
-      <a href="#">PRODUCTS</a>
-      <a href="#">IoT</a>
-      <a href="#">CONTACT US</a>
-    </nav>
+  </div>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasMenuLabel">Menu</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </header>
+
+
 
 
 <!-- HERO SECTION -->
@@ -80,7 +119,7 @@
 
 
 <!-- FEATURES SECTION -->
-<section class="features-wrapper">
+<!-- <section class="features-wrapper">
   <h2>What We<span class="bold"> Bring to the Table</span></h2>
 
   <div class="features-container">
@@ -131,7 +170,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 <section class="why-it-matters">
@@ -175,12 +214,12 @@
   </div>
 </section>
 <section class="faq-section container py-5">
-    <h2 class="bold">Frequently Asked Questions</h2>
+  <h2 class="bold">Frequently Asked Questions</h2>
   <div class="accordion" id="bioAccordion">
     <div class="accordion-item">
       <h2 class="accordion-header">
-        <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse"
-          data-bs-target="#faqOne" aria-expanded="true">
+        <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne"
+          aria-expanded="true">
           How Does Biogrenetech Support Bio-Energy Businesses ?
         </button>
       </h2>
@@ -280,19 +319,19 @@
         </ul>
       </div>
 
-    <div class="col-md-3">
-  <h6 class="fw-bold">Social Media</h6>
-  <div class="d-flex flex-wrap gap-2"> <!-- Reduced gap between icons -->
-    <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
-    <a href="#" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
-    <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
-  </div>
-  <div class="d-flex flex-wrap gap-2"> <!-- Reduced gap between icons -->
-    <a href="#" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
-    <a href="#" class="text-white fs-5"><i class="bi bi-telegram"></i></a>
-    <a href="#" class="text-white fs-5"><i class="bi bi-twitter"></i></a> <!-- Added Twitter Icon -->
-  </div>
-</div>
+      <div class="col-md-3">
+        <h6 class="fw-bold">Social Media</h6>
+        <div class="d-flex flex-wrap gap-2"> <!-- Reduced gap between icons -->
+          <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+        </div>
+        <div class="d-flex flex-wrap gap-2"> <!-- Reduced gap between icons -->
+          <a href="#" class="text-white fs-5"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="text-white fs-5"><i class="bi bi-telegram"></i></a>
+          <a href="#" class="text-white fs-5"><i class="bi bi-twitter"></i></a> <!-- Added Twitter Icon -->
+        </div>
+      </div>
 
     </div>
 
