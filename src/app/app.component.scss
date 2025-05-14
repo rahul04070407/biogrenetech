@@ -432,10 +432,10 @@ header {
 
         li {
             display: flex;
-            align-items: flex-end; // aligns icon with first line of text
+            align-items: flex-end;
             gap: 10px;
             font-size: 18px;
-            margin-bottom: 20px; // better vertical spacing
+            margin-bottom: 20px; 
             color: #222;
             justify-content: center;
 
@@ -457,50 +457,72 @@ header {
     }
 }
 
-
-
-.accordion-button {
-    background-color: transparent;
-    box-shadow: none;
-    padding-right: 2.5rem;
-    position: relative;
-
-    &::after {
-        background-color: #000;
-        color: #fff;
-        background-image: none !important;
-        font-family: "bootstrap-icons" !important;
-        content: "\f282";
-        font-style: normal;
-        font-weight: normal;
-        margin-left: auto;
-        transition: transform 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        width: 28px;
-        height: 28px;
-        font-size: 14px;
-    }
-
-    &.collapsed::after {
-        content: "\f285";
-    }
-
-}
-
-
-
-.accordion-item {
-    border: none;
-    border-bottom: 1px solid #000;
-}
-
 .accordion-body {
-    padding-left: 1.5rem;
-    padding-bottom: 1rem;
+    padding-top: 0px !important;
 }
+
+.faq-section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  max-width: 900px;
+
+  h2 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0.6rem;
+  }
+
+  .accordion {
+    .accordion-item {
+      border: none;
+      border-bottom: 1px solid #000;
+
+
+      .accordion-button {
+        background-color: transparent;
+        box-shadow: none;
+        padding-right: 2.5rem;
+        position: relative;
+        font-weight: 600;
+
+        &::after {
+          background-color: #000;
+          color: #fff;
+          background-image: none !important;
+          font-family: "bootstrap-icons" !important;
+          content: "\f282";
+          font-style: normal;
+          font-weight: normal;
+          margin-left: auto;
+          transition: transform 0.3s ease;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          width: 28px;
+          height: 28px;
+          font-size: 14px;
+        }
+
+        &.collapsed::after {
+          content: "\f285";
+        }
+
+        &:not(.collapsed) {
+          color: #386b31; 
+        }
+      }
+
+      .accordion-body {
+        padding-left: 1.5rem;
+        // padding-bottom: 1rem;
+        font-size: 0.875rem;
+        color: #6c757d;
+      }
+    }
+  }
+}
+
 
 .footer {
     background-color: #000; // Dark background color
