@@ -608,3 +608,139 @@ header {
         }
     }
 }
+
+
+/* --------------- TABLET (768px and below) --------------- */
+@media (max-width: 768px) {
+
+  header .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+
+    nav {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      a {
+        margin: 10px 10px 0 0;
+      }
+    }
+  }
+
+  .hero .hero-text h1 {
+    font-size: 40px;
+  }
+
+  .hero .hero-visuals {
+    top: 0;
+    left: 0;
+
+    .truck-img {
+      max-width: 100%;
+    }
+
+    .circle1,
+    .circle2,
+    .circle3 {
+      display: none; /* hide for simplicity on smaller screens */
+    }
+  }
+
+  .features-wrapper .features-container {
+    flex-direction: column;
+    align-items: center;
+
+    .features-image {
+      top: 0;
+      left: 0;
+      margin-bottom: 20px;
+    }
+
+    .features-content {
+      padding: 0 20px;
+    }
+  }
+
+  .bio-revolution .bio-revolution-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .bio-text {
+      flex-direction: column;
+      align-items: center;
+
+      .left-bar {
+        display: none;
+      }
+    }
+  }
+
+  .biogrenetech-impact .impact-wrapper .impact-title h2 {
+    font-size: 30px;
+  }
+
+  .bio-energy-info h3 {
+    font-size: 22px;
+  }
+
+  .faq-section {
+    padding: 2rem 1rem;
+  }
+
+  footer .container .row {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .col-md-3 {
+      width: 100%;
+      padding: 10px 0;
+    }
+  }
+
+  .footer .justify-content-between {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* --------------- MOBILE (480px and below) --------------- */
+@media (max-width: 480px) {
+  header .logo-wrapper img {
+    height: 50px;
+  }
+
+  .hero .hero-text h1 {
+    font-size: 28px;
+  }
+
+  .features-wrapper h2 {
+    font-size: 24px;
+  }
+
+  .bio-revolution .bio-content h2 {
+    font-size: 18px;
+  }
+
+  .side-demo-button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .bio-energy-info .description {
+    font-size: 14px;
+  }
+
+  .bio-energy-info .features li {
+    font-size: 16px;
+  }
+
+  .faq-section h2 {
+    font-size: 20px;
+  }
+
+  .footer {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
