@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { AfterViewInit, Component } from '@angular/core';
+import Aos from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,18 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'biogreentech';
+  ngAfterViewInit() {
+    setTimeout(() => {
+      Aos.init({
+        duration: 1200,
+       offset: 0,
+      });
+      Aos.refreshHard();
+    });
+  }
+
+
 
 }
