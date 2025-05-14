@@ -81,7 +81,7 @@ body {
         }
     }
 
-    @media (max-width: 575px) {
+    @media (max-width: 769px) {
         .col-6 {
             display: flex;
             justify-content: flex-start;
@@ -96,7 +96,7 @@ body {
         }
     }
 
-    @media (min-width: 576px) {
+    @media (min-width: 770px) {
         .navbar-toggler {
             display: none;
         }
@@ -683,7 +683,9 @@ body {
 }
 /* --------------- TABLET (768px and below) --------------- */
 @media (max-width: 767px) {
-
+navbar-toggler{
+    display: block;
+}
     .hero .hero-text h1 {
         font-size: 40px;
     }
