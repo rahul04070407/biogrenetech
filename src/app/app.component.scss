@@ -217,6 +217,25 @@ body {
             }
         }
     }
+
+
+    .bell-button {
+        display: none;
+        position: absolute;
+        background-color: black;
+        color: white;
+        top: 233px;
+        border: none;
+        border-radius: 11px;
+        width: 144px;
+        height: 33px;
+        font-size: 10px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+        z-index: 1000;
+    }
+
 }
 
 
@@ -699,6 +718,16 @@ body {
 }
 
 @media (max-width: 1040px) {
+    .bell-button {
+        top: 347px !important;
+        width: 141px !important;
+        height: 34px !important;
+        font-size: 12px !important;
+    }
+
+    .side-demo-button {
+        display: none !important;
+    }
 
     .custom-header {
         .navbar-toggler {
@@ -716,19 +745,13 @@ body {
         font-size: 50px;
     }
 
-    // .hero .hero-visuals {
-    //     top: 0;
-    //     left: 0;
 
-    //     .truck-img {
-    //         max-width: 100%;
-    //     }
+    .bell-button {
+        display: block !important;
+    }
 
-    //     .circle1,
-    //     .circle2,
-    //     .circle3 {
-    //         display: none;
-    //     }
+    // .hero {
+    //     margin-bottom: 60px !important;
     // }
 
     .hero-visuals {
@@ -812,6 +835,14 @@ body {
 
 /* --------------- TABLET (768px and below) --------------- */
 @media (max-width: 767px) {
+
+    .bell-button {
+        top: 274px !important;
+        width: 117px !important;
+        height: 31px !important;
+        font-size: 9px !important;
+    }
+
     navbar-toggler {
         display: block;
     }
@@ -921,6 +952,13 @@ body {
 }
 
 @media (max-width: 540px) {
+    .bell-button {
+        top: 274px !important;
+        width: 117px !important;
+        height: 31px !important;
+        font-size: 9px !important;
+    }
+
     .hero .hero-text h1 {
         font-size: 38px;
     }
@@ -964,6 +1002,14 @@ body {
 
 /* --------------- MOBILE (480px and below) --------------- */
 @media (max-width: 480px) {
+
+    .bell-button {
+        top: 230px !important;
+        width: 103px !important;
+        height: 26px !important;
+        font-size: 8px !important;
+    }
+
     .hero .hero-text h1 {
         font-size: 28px;
     }
@@ -1118,6 +1164,14 @@ body {
 }
 
 @media (max-width: 380px) {
+
+    .bell-button {
+        top: 211px !important;
+        width: 103px !important;
+        height: 26px !important;
+        font-size: 8px !important;
+    }
+
     .hero .hero-text h1 {
         font-size: 25px;
     }
