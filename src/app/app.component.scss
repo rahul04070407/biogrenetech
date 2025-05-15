@@ -14,7 +14,7 @@ body {
 
     .logo {
         max-height: 70px;
-        margin-right: 50px;
+        // margin-right: 50px;
     }
 
     .navbar-toggler {
@@ -74,11 +74,13 @@ body {
 
     .offcanvas-start {
         width: 250px;
-        background-color: #343a40;
+        background-color: #e4f5e7;
+        color: #000;
     }
 
     .offcanvas-header {
-        background-color: #495057;
+        background-color: #7a9a83;
+        ;
         color: white;
     }
 
@@ -95,7 +97,7 @@ body {
                 padding: 10px;
 
                 a {
-                    color: white;
+                    color: black;
                     text-decoration: none;
 
                     &:hover {
@@ -1012,30 +1014,42 @@ body {
     }
 
     .bio-revolution .bio-content h2 {
-        font-size: 18px !important;
+        font-size: 16px !important;
+    }
+
+    .bio-revolution .bio-content p {
+        font-size: 14px !important;
     }
 
     .bio-revolution .bio-image img {
-        max-width: 300px !important;
+        max-width: 265px !important;
     }
 
     .biogrenetech-impact .impact-wrapper img {
 
-        max-width: 300px !important;
+        max-width: 265px !important;
 
     }
 
+    .biogrenetech-impact .impact-wrapper .impact-title h2 {
+        font-size: 24px;
+    }
+
+    .biogrenetech-impact .impact-wrapper .impact-desc p {
+        font-size: 14px;
+    }
+
     .side-demo-button {
-        font-size: 12px !important;
+        font-size: 9px !important;
         padding: 8px 16px !important;
     }
 
     .bio-energy-info .description {
-        font-size: 14px !important;
+        font-size: 12px !important;
     }
 
     .bio-energy-info .features li {
-        font-size: 16px !important;
+        font-size: 12px !important;
     }
 
     .faq-section h2 {
@@ -1045,5 +1059,70 @@ body {
     .footer {
         padding-top: 2rem !important;
         padding-bottom: 2rem !important;
+    }
+
+    .features-wrapper .features-container .features-content .feature-item h4 {
+
+        font-size: 13px;
+    }
+
+    .why-it-matters {
+        padding: 0px 20px;
+    }
+
+    .why-it-matters .message-box {
+
+        font-size: 12px;
+    }
+
+    .bio-energy-info h3 {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero .hero-text h1 {
+        font-size: 25px;
+    }
+
+    .hero .hero-text p {
+        font-size: 9px;
+    }
+
+    .hero-visuals {
+        top: -47px !important;
+        left: 0;
+
+        .truck-img {
+            max-width: 208px !important;
+        }
+
+        .circle {
+
+
+            &.circle1 {
+
+                width: 125px !important;
+                height: 125px !important;
+                bottom: -10px !important;
+                right: -69px !important;
+            }
+
+            &.circle2 {
+                width: 25px !important;
+                height: 25px !important;
+                bottom: 0px !important;
+                right: -66px !important;
+
+            }
+
+            &.circle3 {
+                width: 8px !important;
+                height: 8px !important;
+                bottom: 21px !important;
+                right: -80px !important;
+
+            }
+        }
     }
 }
