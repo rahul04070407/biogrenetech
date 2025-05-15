@@ -60,7 +60,7 @@ body {
                         content: "";
                         position: absolute;
                         width: 100%;
-                        height: 3px; // Adjust the underline height
+                        height: 2px; // Adjust the underline height
                         bottom: 0;
                         left: 0;
                         background-color: black; // Underline color
@@ -121,11 +121,8 @@ body {
         }
     }
 
-    @media (min-width: 770px) {
-        .navbar-toggler {
-            display: none;
-        }
-    }
+
+
 }
 
 .bi-list::before {
@@ -701,6 +698,13 @@ body {
 
 @media (max-width: 1040px) {
 
+    .custom-header {
+        .navbar-toggler {
+            margin-left: auto;
+            display: block;
+        }
+    }
+
     .hero .hero-wrapper {
         flex-direction: column;
         align-items: center;
@@ -710,18 +714,60 @@ body {
         font-size: 50px;
     }
 
-    .hero .hero-visuals {
+    // .hero .hero-visuals {
+    //     top: 0;
+    //     left: 0;
+
+    //     .truck-img {
+    //         max-width: 100%;
+    //     }
+
+    //     .circle1,
+    //     .circle2,
+    //     .circle3 {
+    //         display: none;
+    //     }
+    // }
+
+    .hero-visuals {
         top: 0;
         left: 0;
 
         .truck-img {
-            max-width: 100%;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 450px !important;
         }
 
-        .circle1,
-        .circle2,
-        .circle3 {
-            display: none;
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            z-index: 1;
+
+            &.circle1 {
+                width: 230px !important;
+                height: 230px !important;
+                bottom: 24px !important;
+                right: -102px !important;
+
+            }
+
+            &.circle2 {
+                width: 70px !important;
+                height: 70px !important;
+                bottom: 41px !important;
+                right: -115px !important;
+            }
+
+            &.circle3 {
+                width: 15px !important;
+                height: 15px !important;
+                bottom: 107px !important;
+                right: -148px !important;
+
+            }
         }
     }
 
@@ -759,6 +805,9 @@ body {
     }
 }
 
+
+
+
 /* --------------- TABLET (768px and below) --------------- */
 @media (max-width: 767px) {
     navbar-toggler {
@@ -769,18 +818,45 @@ body {
         font-size: 40px;
     }
 
-    .hero .hero-visuals {
+    .hero-visuals {
         top: 0;
         left: 0;
 
         .truck-img {
-            max-width: 100%;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 350px !important;
         }
 
-        .circle1,
-        .circle2,
-        .circle3 {
-            display: none;
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            z-index: 1;
+
+            &.circle1 {
+                width: 180px !important;
+                height: 180px !important;
+                bottom: 18px !important;
+                right: -78px !important;
+
+            }
+
+            &.circle2 {
+                width: 50px !important;
+                height: 50px !important;
+                bottom: 31px !important;
+                right: -84px !important;
+            }
+
+            &.circle3 {
+                width: 12px !important;
+                height: 12px !important;
+                bottom: 80px !important;
+                right: -108px !important;
+
+            }
         }
     }
 
@@ -842,39 +918,132 @@ body {
     }
 }
 
+@media (max-width: 540px) {
+    .hero .hero-text h1 {
+        font-size: 38px;
+    }
+
+    .hero-visuals {
+        top: 0;
+        left: 0;
+
+        .truck-img {
+            max-width: 330px !important;
+        }
+
+        .circle {
+
+
+            &.circle1 {
+                width: 170px !important;
+                height: 170px !important;
+                bottom: 14px !important;
+                right: -76px !important;
+
+            }
+
+            &.circle2 {
+                width: 35px !important;
+                height: 35px !important;
+                bottom: 32px !important;
+                right: -77px !important;
+            }
+
+            &.circle3 {
+                width: 10px !important;
+                height: 10px !important;
+                bottom: 66px !important;
+                right: -97px !important;
+
+            }
+        }
+    }
+}
+
 /* --------------- MOBILE (480px and below) --------------- */
 @media (max-width: 480px) {
     .hero .hero-text h1 {
         font-size: 28px;
     }
 
+    .hero .hero-text p {
+        font-size: 11px;
+    }
+
+    .hero-visuals {
+        top: -49px !important;
+        left: 0;
+
+        .truck-img {
+            max-width: 250px !important;
+        }
+
+        .circle {
+
+
+            &.circle1 {
+
+                width: 137px !important;
+                height: 137px !important;
+                bottom: 5px !important;
+                right: -69px !important;
+            }
+
+            &.circle2 {
+                width: 25px !important;
+                height: 25px !important;
+                bottom: 14px !important;
+                right: -63px !important;
+
+            }
+
+            &.circle3 {
+                width: 8px !important;
+                height: 8px !important;
+                bottom: 40px !important;
+                right: -80px !important;
+
+            }
+        }
+    }
+
     .features-wrapper h2 {
-        font-size: 24px;
+        font-size: 24px !important;
     }
 
     .bio-revolution .bio-content h2 {
-        font-size: 18px;
+        font-size: 18px !important;
+    }
+
+    .bio-revolution .bio-image img {
+        max-width: 300px !important;
+    }
+
+    .biogrenetech-impact .impact-wrapper img {
+
+        max-width: 300px !important;
+
     }
 
     .side-demo-button {
-        font-size: 12px;
-        padding: 8px 16px;
+        font-size: 12px !important;
+        padding: 8px 16px !important;
     }
 
     .bio-energy-info .description {
-        font-size: 14px;
+        font-size: 14px !important;
     }
 
     .bio-energy-info .features li {
-        font-size: 16px;
+        font-size: 16px !important;
     }
 
     .faq-section h2 {
-        font-size: 20px;
+        font-size: 20px !important;
     }
 
     .footer {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
     }
 }
