@@ -30,6 +30,7 @@ body {
         justify-content: center;
         align-items: center;
         gap: 10px;
+        left: 31px;
 
         // .nav-item {
         //     list-style: none;
@@ -219,22 +220,63 @@ body {
     }
 
 
+    // .bell-button {
+    //     display: block;
+    //     position: absolute;
+    //     background-color: black;
+    //     color: white;
+    //     top: 233px;
+    //     border: none;
+    //     border-radius: 11px;
+    //     width: 144px;
+    //     height: 33px;
+    //     font-size: 10px;
+    //     cursor: pointer;
+    //     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    //     transition: background-color 0.3s ease;
+    //     z-index: 1000;
+    // }
+
     .bell-button {
-        display: none;
+        display: block;
         position: absolute;
         background-color: black;
         color: white;
-        top: 233px;
+        top: 483px;
         border: none;
         border-radius: 11px;
-        width: 144px;
-        height: 33px;
-        font-size: 10px;
+        width: 208px;
+        height: 37px;
+        font-size: 16px;
         cursor: pointer;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: background-color 0.3s ease;
         z-index: 1000;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 0 10px rgba(94, 95, 94, 0.6);
+        animation: pulse-glow 4s infinite; // <== SLOWER (was 2s)
+
+        &:hover {
+            background-color: #2f7033;
+            transform: scale(1.05);
+            // box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+        }
     }
+
+    // Glowing pulse animation
+    @keyframes pulse-glow {
+        0% {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
+        50% {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+        }
+
+        100% {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+    }
+
+
 
 }
 
