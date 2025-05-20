@@ -1,0 +1,32 @@
+<header class="custom-header">
+  <div class="header-row">
+    <div class="logo-container">
+      <img src="images/logo1.png" alt="Logo" class="logo" />
+    </div>
+
+    <nav class="nav desktop-nav">
+      <a class="nav-link" routerLink="/home"  routerLinkActive="active">Home</a>
+      <a class="nav-link" routerLink="/about"  routerLinkActive="active">About</a>
+      <a class="nav-link" routerLinkActive="active" routerLink="/services">Services</a>
+      <a class="nav-link" routerLinkActive="active" routerLink="/contact">Contact</a>
+    </nav>
+
+
+    <div class="menu-toggle" #menuToggle>
+      &#9776;
+    </div>
+  </div>
+
+  <div class="offcanvas-menu" #offcanvasMenu>
+    <div class="offcanvas-header">
+      <h5>Menu</h5>
+      <span class="close-btn" #closeBtn>&times;</span>
+    </div>
+    <div class="offcanvas-body">
+      <a class="nav-link" routerLinkActive="active" routerLink="/home">Home</a>
+      <a class="nav-link" routerLinkActive="active" routerLink="/about">About</a>
+      <a class="nav-link" routerLinkActive="active" routerLink="/services">Services</a>
+      <a class="nav-link" routerLinkActive="active" routerLink="/contact">Contact</a>
+    </div>
+  </div>
+</header>

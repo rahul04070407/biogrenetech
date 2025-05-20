@@ -1,0 +1,1271 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.custom-header {
+    background-color: #e4f5e7;
+
+    .logo {
+        max-height: 70px;
+        // margin-right: 50px;
+    }
+
+    .navbar-toggler {
+        display: none;
+    }
+
+    .row {
+        height: 70px;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 70px;
+        left: 31px;
+
+        // .nav-item {
+        //     list-style: none;
+        //     padding: 5px 10px;
+
+        //     .nav-link {
+        //         text-decoration: none;
+        //         color: #333;
+        //         font-weight: 500;
+
+        //         &:hover {
+        //             color: black;
+        //             text-decoration: underline;
+        //         }
+        //     }
+        // }
+
+        .nav-item {
+            .nav-link {
+                position: relative;
+                color: #333;
+
+                &:hover {
+                    color: black; // Color of the text on hover
+                    text-decoration: none; // Remove default underline
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 2px; // Adjust the underline height
+                        bottom: 0;
+                        left: 0;
+                        background-color: black; // Underline color
+                        padding-bottom: 5px; // Adjust the distance between text and underline
+                    }
+                }
+            }
+        }
+
+    }
+
+    .offcanvas-start {
+        width: 250px;
+        background-color: #e4f5e7;
+        color: #000;
+    }
+
+    .offcanvas-header {
+        background-color: #7a9a83;
+        ;
+        color: white;
+    }
+
+    .offcanvas-body {
+        padding: 0;
+
+        .nav {
+            display: flex;
+            flex-direction: column;
+            padding-left: 0;
+            margin: 0;
+
+            .nav-item {
+                padding: 10px;
+
+                a {
+                    color: black;
+                    text-decoration: none;
+
+                    &:hover {
+                        background-color: #6c757d;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 769px) {
+        .col-6 {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .navbar-toggler {
+            display: block;
+        }
+
+        .d-md-flex {
+            display: none;
+        }
+    }
+
+
+
+}
+
+.bi-list::before {
+    color: black !important;
+}
+
+
+.hero {
+    position: relative;
+    background-color: #E4F5E7;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: center;
+
+    .hero-wrapper {
+        max-width: 1000px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .hero-text {
+        margin-bottom: 40px;
+
+        p {
+            font-size: 14px;
+            letter-spacing: 4px;
+            color: #5e5e5e;
+            margin: 0;
+        }
+
+
+        h1 {
+            font-family: 'Ordax Bold', sans-serif;
+            font-size: 70px;
+            color: #2F7033;
+            font-weight: 800;
+            margin-top: 10px;
+
+            line-height: 1.1;
+            letter-spacing: 1px;
+        }
+
+
+    }
+
+    .hero-visuals {
+        position: relative;
+        display: inline-block;
+        top: -54px;
+        left: -20px;
+
+        .truck-img {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 680px;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            z-index: 1;
+
+            &.circle1 {
+                width: 350px;
+                height: 350px;
+                bottom: 46px;
+                right: -139px;
+                background-color: #aaccb3;
+            }
+
+            &.circle2 {
+                width: 100px;
+                height: 100px;
+                bottom: 48px;
+                right: -133px;
+                border: 2px solid white;
+                background-color: #7a9a83;
+                z-index: 2;
+                opacity: 1;
+            }
+
+            &.circle3 {
+                width: 25px;
+                height: 25px;
+                bottom: 115px;
+                right: -172px;
+                background-color: #aaccb3;
+            }
+        }
+    }
+
+
+    // .bell-button {
+    //     display: block;
+    //     position: absolute;
+    //     background-color: black;
+    //     color: white;
+    //     top: 233px;
+    //     border: none;
+    //     border-radius: 11px;
+    //     width: 144px;
+    //     height: 33px;
+    //     font-size: 10px;
+    //     cursor: pointer;
+    //     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    //     transition: background-color 0.3s ease;
+    //     z-index: 1000;
+    // }
+
+    .bell-button {
+        display: block;
+        position: absolute;
+        background-color: black;
+        color: white;
+        top: 483px;
+        border: none;
+        border-radius: 11px;
+        width: 208px;
+        height: 37px;
+        font-size: 16px;
+        cursor: pointer;
+        // z-index: 1000;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 0 10px rgba(94, 95, 94, 0.6);
+        animation: border-pulse 2s ease-in-out infinite;
+
+        &:hover {
+            background-color: #2f7033;
+            transform: scale(1.05);
+            // box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+        }
+    }
+
+    @keyframes border-pulse {
+        0% {
+            transform: scale(1);
+            border-color: black;
+
+        }
+
+        50% {
+            transform: scale(1.05);
+            border-color: black;
+
+        }
+
+        100% {
+            transform: scale(1);
+            border-color: black;
+
+        }
+    }
+
+    .bell-button:hover {
+        // background-color: white;
+        color: white;
+    }
+
+
+
+}
+
+
+.side-demo-button {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: rotate(-90deg) translateY(-50%);
+    transform-origin: right center;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 4px 4px 0 0;
+    z-index: 1000;
+}
+
+.bio-revolution {
+    background-color: #f5f5f5;
+    padding: 60px 20px;
+
+    .bio-revolution-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        max-width: 900px; // updated as per your doc
+        margin: 0 auto;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    .bio-text {
+        position: relative;
+        flex: 1;
+        min-width: 300px;
+        display: flex;
+
+        .left-bar {
+            width: 26px;
+            background-color: #9e9e97;
+            margin-right: 20px;
+        }
+
+        .bio-content {
+            h2 {
+                font-size: 22px;
+                color: #2f7033;
+                font-weight: 600;
+                font-family: 'Times New Roman', Times, serif;
+                margin: 0 0 10px 0;
+            }
+
+
+
+            p {
+                font-size: 15px;
+                color: #5e5e5e;
+                line-height: 1.6;
+                margin: 0;
+            }
+        }
+    }
+
+    .bio-image {
+        flex: 1;
+        min-width: 300px;
+        text-align: center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.biogrenetech-impact {
+    background-color: #def2e1;
+    text-align: center;
+    padding: 30px 10px;
+
+    .impact-wrapper {
+        max-width: 900px;
+        margin: 0 auto;
+
+        .impact-title {
+            h2 {
+                font-size: 45px;
+                font-family: 'Ordax Bold', sans-serif;
+                color: #2f7033;
+                font-weight: 800;
+                margin-bottom: 5px;
+            }
+
+            h4 {
+                font-size: 16px;
+                letter-spacing: 3px;
+                color: #a2a6aa;
+                margin-top: 0;
+                font-weight: 500;
+            }
+        }
+
+        .impact-image {
+            img {
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+            }
+        }
+
+        .impact-desc {
+            p {
+                font-size: 15px;
+                color: #333;
+                line-height: 1.7;
+                max-width: 500px;
+                margin: 0 auto 24px;
+
+                strong {
+                    font-weight: 700;
+                    // color: #2f7033;
+                }
+            }
+        }
+    }
+}
+
+.features-wrapper {
+    padding: 60px 20px;
+    background: #ffffff;
+
+
+
+    h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        text-align: center;
+        color: #2f7033;
+
+
+        .bold {
+            font-weight: 700;
+            color: #2f7033;
+        }
+    }
+
+    .features-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .features-image {
+            flex: 1 1 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            top: 87px;
+            left: 150px;
+
+            .circle-bg {
+                width: 200px;
+                height: 200px;
+                background: #eee8e8;
+                border-radius: 50%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translate(30%, 22%);
+                z-index: 1;
+            }
+
+            img {
+                max-width: 560px;
+                height: auto;
+                position: relative;
+                z-index: 2;
+            }
+        }
+
+
+        .features-content {
+            flex: 1 1 50%;
+            padding: 0 40px;
+            text-align: left;
+
+            .feature-item {
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 25px;
+                padding: 15px;
+                border-radius: 10px;
+                transition: background 0.3s ease, border 0.3s ease;
+
+                img {
+                    height: 24px;
+                    // font-size: 24px;
+                    margin-right: 15px;
+                    color: #2f7033;
+                    flex-shrink: 0;
+                    margin-top: 4px;
+                }
+
+                i.bi {
+                    font-size: 24px;
+                    margin-right: 15px;
+                    color: #2f7033;
+                    flex-shrink: 0;
+                    margin-top: 4px;
+                }
+
+                h4 {
+                    margin: 0 0 6px;
+                    font-weight: 700;
+                    font-size: 17px;
+                    color: #000000;
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 14px;
+                    color: #444444;
+                }
+
+                &.highlight {
+                    background: #ffffff;
+                    border: 2px solid #2f7033;
+
+                    h4 {
+                        color: #2f7033;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.why-it-matters {
+    text-align: center;
+    padding: 60px 20px;
+
+    h2 {
+        letter-spacing: 5px;
+        font-weight: 500;
+        color: #2f593c;
+        margin-bottom: 40px;
+    }
+
+    .message-box {
+        background-color: #a6d9a6;
+        color: #1b1b1b;
+        padding: 15px 20px;
+        margin: 10px auto;
+        width: 80%;
+        max-width: 600px;
+        border-radius: 5px;
+        font-size: 16px;
+
+        strong {
+            font-weight: 600;
+        }
+    }
+}
+
+.bio-energy-info {
+    background-color: #f4f4f4;
+    padding: 80px 20px;
+    font-family: 'Oswald', sans-serif;
+
+    h3 {
+        font-size: 28px;
+        font-weight: 500;
+        color: #2f593c;
+        text-align: center;
+        margin-bottom: 20px;
+
+        .highlight {
+            color: #1a8e3c;
+            font-weight: 700;
+        }
+    }
+
+    .description {
+        font-size: 16px;
+        color: #444;
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 40px;
+        line-height: 1.7;
+    }
+
+    .features {
+        list-style: none;
+        padding: 0;
+        max-width: 520px;
+        margin: 0 auto;
+
+        li {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #222;
+            justify-content: center;
+
+            i {
+                color: #1a8e3c;
+                font-size: 1.2rem;
+                margin-top: 3px;
+            }
+
+            span {
+                line-height: 1.4;
+            }
+
+            strong {
+                font-weight: 500;
+                color: #1a8e3c;
+            }
+        }
+    }
+}
+
+.accordion-body {
+    padding-top: 0px !important;
+}
+
+.faq-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    max-width: 900px;
+
+    h2 {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 0.6rem;
+    }
+
+    .accordion {
+        .accordion-item {
+            border: none;
+            border-bottom: 1px solid #000;
+
+
+            .accordion-button {
+                background-color: transparent;
+                box-shadow: none;
+                padding-right: 2.5rem;
+                position: relative;
+                font-weight: 600;
+
+                &::after {
+                    background-color: #000;
+                    color: #fff;
+                    background-image: none !important;
+                    font-family: "bootstrap-icons" !important;
+                    content: "\f282";
+                    font-style: normal;
+                    font-weight: normal;
+                    margin-left: auto;
+                    transition: transform 0.3s ease;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    width: 28px;
+                    height: 28px;
+                    font-size: 14px;
+                }
+
+                &.collapsed::after {
+                    content: "\f285";
+                }
+
+                &:not(.collapsed) {
+                    color: #386b31;
+                }
+            }
+
+            .accordion-body {
+                padding-left: 1.5rem;
+                font-size: 0.875rem;
+                color: #6c757d;
+            }
+        }
+    }
+}
+
+
+.footer {
+    background-color: #000;
+    color: white;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    .container {
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+
+            .col-md-3 {
+                flex: 1 1 25%;
+                padding: 0 1rem;
+                margin-bottom: 1rem;
+
+                h6 {
+                    font-weight: bold;
+                }
+
+                p,
+                ul {
+                    font-size: 0.875rem;
+                }
+
+                ul {
+                    list-style-type: none;
+                    padding-left: 0;
+
+                    li {
+                        margin-bottom: 0.5rem;
+
+                        a {
+                            color: white;
+                            text-decoration: none;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+
+                .d-flex {
+                    gap: 0.5rem;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+
+                    a {
+                        font-size: 1.25rem;
+                        color: white;
+                        margin-bottom: 0.5rem;
+
+                        &:hover {
+                            color: #17a2b8;
+                        }
+                    }
+                }
+            }
+        }
+
+        hr {
+            border-color: #dee2e6;
+        }
+
+        .small {
+            font-size: 0.875rem;
+        }
+
+        .justify-content-between {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+
+            .text-white {
+                text-decoration: none;
+            }
+
+            .text-white:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+@media (max-width: 1040px) {
+    .bell-button {
+        top: 347px !important;
+        width: 141px !important;
+        height: 34px !important;
+        font-size: 12px !important;
+    }
+
+    .side-demo-button {
+        display: none !important;
+    }
+
+    .custom-header {
+        .navbar-toggler {
+            margin-left: auto;
+            display: block;
+        }
+    }
+
+    .hero .hero-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero .hero-text h1 {
+        font-size: 50px;
+    }
+
+
+    .bell-button {
+        display: block !important;
+    }
+
+    // .hero {
+    //     margin-bottom: 60px !important;
+    // }
+
+    .hero-visuals {
+        top: 0;
+        left: 0;
+
+        .truck-img {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 450px !important;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            z-index: 1;
+
+            &.circle1 {
+                width: 230px !important;
+                height: 230px !important;
+                bottom: 24px !important;
+                right: -102px !important;
+
+            }
+
+            &.circle2 {
+                width: 70px !important;
+                height: 70px !important;
+                bottom: 41px !important;
+                right: -115px !important;
+            }
+
+            &.circle3 {
+                width: 15px !important;
+                height: 15px !important;
+                bottom: 107px !important;
+                right: -148px !important;
+
+            }
+        }
+    }
+
+    .features-wrapper .features-container {
+        flex-direction: column;
+        align-items: center;
+
+        .features-image {
+            top: 0;
+            // left: 0;
+            margin-bottom: 20px;
+        }
+
+        .features-content {
+            padding: 0 20px;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .nav {
+        position: relative;
+        padding-bottom: 2px;
+    }
+
+    .nav::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #2F7033;
+        /* Change to your brand color */
+    }
+}
+
+
+
+
+/* --------------- TABLET (768px and below) --------------- */
+@media (max-width: 767px) {
+
+    .bell-button {
+        top: 274px !important;
+        width: 117px !important;
+        height: 31px !important;
+        font-size: 9px !important;
+    }
+
+    navbar-toggler {
+        display: block;
+    }
+
+    .hero .hero-text h1 {
+        font-size: 40px;
+    }
+
+    .hero-visuals {
+        top: 0;
+        left: 0;
+
+        .truck-img {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 350px !important;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            z-index: 1;
+
+            &.circle1 {
+                width: 180px !important;
+                height: 180px !important;
+                bottom: 18px !important;
+                right: -78px !important;
+
+            }
+
+            &.circle2 {
+                width: 50px !important;
+                height: 50px !important;
+                bottom: 31px !important;
+                right: -84px !important;
+            }
+
+            &.circle3 {
+                width: 12px !important;
+                height: 12px !important;
+                bottom: 80px !important;
+                right: -108px !important;
+
+            }
+        }
+    }
+
+    .features-wrapper .features-container {
+        flex-direction: column;
+        align-items: start;
+
+        .features-image {
+            top: 0;
+            left: 0;
+            margin-bottom: 20px;
+        }
+
+        .features-content {
+            padding: 0 20px;
+        }
+    }
+
+    .bio-revolution .bio-revolution-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .bio-text {
+            flex-direction: column;
+            align-items: center;
+
+            .left-bar {
+                display: none;
+            }
+        }
+    }
+
+    .biogrenetech-impact .impact-wrapper .impact-title h2 {
+        font-size: 30px;
+    }
+
+    .bio-energy-info h3 {
+        font-size: 22px;
+    }
+
+    .faq-section {
+        padding: 2rem 1rem;
+    }
+
+    footer .container .row {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .col-md-3 {
+            width: 100%;
+            padding: 10px 0;
+        }
+    }
+
+    .footer .justify-content-between {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 540px) {
+    .bell-button {
+        top: 274px !important;
+        width: 117px !important;
+        height: 31px !important;
+        font-size: 9px !important;
+    }
+
+    .hero .hero-text h1 {
+        font-size: 38px;
+    }
+
+    .hero-visuals {
+        top: 0;
+        left: 0;
+
+        .truck-img {
+            max-width: 330px !important;
+        }
+
+        .circle {
+
+
+            &.circle1 {
+                width: 170px !important;
+                height: 170px !important;
+                bottom: 14px !important;
+                right: -76px !important;
+
+            }
+
+            &.circle2 {
+                width: 35px !important;
+                height: 35px !important;
+                bottom: 32px !important;
+                right: -77px !important;
+            }
+
+            &.circle3 {
+                width: 10px !important;
+                height: 10px !important;
+                bottom: 66px !important;
+                right: -97px !important;
+
+            }
+        }
+    }
+}
+
+/* --------------- MOBILE (480px and below) --------------- */
+@media (max-width: 480px) {
+
+    .bell-button {
+        top: 230px !important;
+        width: 103px !important;
+        height: 26px !important;
+        font-size: 8px !important;
+    }
+
+    .hero .hero-text h1 {
+        font-size: 28px;
+    }
+
+    .hero .hero-text p {
+        font-size: 11px;
+    }
+
+    .hero-visuals {
+        top: -49px !important;
+        left: 0;
+
+        .truck-img {
+            max-width: 250px !important;
+        }
+
+        .circle {
+
+
+            &.circle1 {
+
+                width: 137px !important;
+                height: 137px !important;
+                bottom: 5px !important;
+                right: -69px !important;
+            }
+
+            &.circle2 {
+                width: 25px !important;
+                height: 25px !important;
+                bottom: 14px !important;
+                right: -63px !important;
+
+            }
+
+            &.circle3 {
+                width: 8px !important;
+                height: 8px !important;
+                bottom: 40px !important;
+                right: -80px !important;
+
+            }
+        }
+    }
+
+    .features-wrapper h2 {
+        font-size: 20px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .bio-revolution .bio-content h2 {
+        font-size: 14px !important;
+    }
+
+    .bio-revolution .bio-content p {
+        font-size: 12px !important;
+    }
+
+    .bio-revolution .bio-image img {
+        max-width: 210px !important;
+    }
+
+    .biogrenetech-impact .impact-wrapper img {
+
+        max-width: 210px !important;
+
+    }
+
+    .biogrenetech-impact .impact-wrapper .impact-title h2 {
+        font-size: 20px !important;
+    }
+
+    .biogrenetech-impact .impact-wrapper .impact-title h4 {
+        font-size: 14px !important;
+    }
+
+    .biogrenetech-impact .impact-wrapper .impact-desc p {
+        font-size: 12px !important;
+    }
+
+    .side-demo-button {
+        font-size: 9px !important;
+        padding: 8px 16px !important;
+    }
+
+    .bio-energy-info .description {
+        font-size: 12px !important;
+    }
+
+    .bio-energy-info .features li {
+        font-size: 12px !important;
+    }
+
+    .faq-section h2 {
+        font-size: 18px !important;
+    }
+
+    .faq-section .accordion .accordion-item .accordion-button {
+
+        font-size: 14px !important;
+    }
+
+    .faq-section .accordion .accordion-item .accordion-body {
+
+        font-size: 12px !important;
+    }
+
+    .footer {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    footer .container .row .col-md-3 .d-flex {
+        justify-content: start !important;
+    }
+
+    .features-wrapper .features-container .features-content .feature-item h4 {
+
+        font-size: 12px;
+    }
+
+    .features-wrapper .features-container .features-image {
+        left: -17px !important;
+    }
+
+    .features-wrapper .features-container .features-content .feature-item img {
+        margin-top: 23px !important;
+    }
+
+    .features-wrapper {
+        padding: 36px 20px !important;
+    }
+
+    .features-wrapper h2 {
+
+        font-size: 14px;
+    }
+
+    .why-it-matters {
+        padding: 0px 20px;
+        padding-bottom: 27px;
+    }
+
+    .why-it-matters .message-box {
+
+        font-size: 12px;
+    }
+
+    .bio-energy-info h3 {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .bell-button {
+        top: 211px !important;
+        width: 103px !important;
+        height: 26px !important;
+        font-size: 8px !important;
+    }
+
+    .hero .hero-text h1 {
+        font-size: 25px;
+    }
+
+    .hero .hero-text p {
+        font-size: 9px;
+    }
+
+    .hero-visuals {
+        top: -47px !important;
+        left: 0;
+
+        .truck-img {
+            max-width: 208px !important;
+        }
+
+        .circle {
+
+
+            &.circle1 {
+
+                width: 125px !important;
+                height: 125px !important;
+                bottom: -10px !important;
+                right: -69px !important;
+            }
+
+            &.circle2 {
+                width: 25px !important;
+                height: 25px !important;
+                bottom: 0px !important;
+                right: -66px !important;
+
+            }
+
+            &.circle3 {
+                width: 8px !important;
+                height: 8px !important;
+                bottom: 21px !important;
+                right: -80px !important;
+
+            }
+        }
+    }
+}
