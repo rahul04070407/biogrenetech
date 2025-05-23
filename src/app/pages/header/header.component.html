@@ -5,8 +5,9 @@
     </div>
 
     <nav class="desktop-nav">
-      <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
-      <a class="nav-link" [routerLink]="['/home']" fragment="about" routerLinkActive="active">ABOUT US</a>
+      <a class="nav-link" [routerLink]="['/home']" [class.active]="isHomeActive">HOME</a>
+      <a class="nav-link" [routerLink]="['/home']" fragment="about" [class.active]="isAboutActive">ABOUT US</a>
+
 
       <a class="nav-link" routerLink="/contact" routerLinkActive="active">PRICING PLANS</a>
     </nav>
@@ -20,8 +21,9 @@
       <span class="close-btn" #closeBtn>&times;</span>
     </div>
     <div class="offcanvas-body">
-      <a class="nav-link" routerLink="/home" routerLinkActive="active">HOME</a>
-      <a class="nav-link" routerLink="/about" routerLinkActive="active">ABOUT US</a>
+      <a class="nav-link" [routerLink]="['/home']" [class.active]="isHomeActive">HOME</a>
+      <a class="nav-link" [routerLink]="['/home']" fragment="about" [class.active]="isAboutActive">ABOUT US</a>
+
       <a class="nav-link" routerLink="/pricing" routerLinkActive="active">PRICING PLANS</a>
     </div>
   </div>
