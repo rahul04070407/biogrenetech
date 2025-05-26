@@ -561,7 +561,7 @@ body {
 .bio-energy-info {
     background-color: #f4f4f4;
     padding: 80px 20px;
-    font-family: 'Oswald', sans-serif;
+
 
     h3 {
         font-size: 28px;
@@ -569,6 +569,7 @@ body {
         color: #2f593c;
         text-align: center;
         margin-bottom: 20px;
+        font-family: 'Oswald', sans-serif;
 
         .highlight {
             color: #1a8e3c;
@@ -577,6 +578,7 @@ body {
     }
 
     .description {
+        font-family: 'Lato', sans-serif;
         font-size: 16px;
         color: #444;
         text-align: center;
@@ -637,21 +639,20 @@ body {
         font-family: 'Oswald', sans-serif;
         text-transform: uppercase;
         letter-spacing: 10px
-
     }
 
     .accordion {
         .accordion-item {
             border: none;
             border-bottom: 1px solid #000;
-
+            font-family: sans-serif;
 
             .accordion-button {
                 background-color: transparent;
                 box-shadow: none;
                 padding-right: 2.5rem;
                 position: relative;
-                font-weight: 600;
+                font-weight: 500 !important;
 
                 &::after {
                     background-color: #000;
@@ -855,8 +856,8 @@ body {
         }
     }
 
-       .faq-section {
-        h2{
+    .faq-section {
+        h2 {
             letter-spacing: 4px !important;
             font-size: 24px !important;
         }
@@ -884,7 +885,7 @@ body {
         padding-bottom: 2px;
     }
 
-  
+
 
     .nav::after {
         content: '';
@@ -1000,9 +1001,10 @@ body {
     }
 
     .faq-section {
-        h2{
+        h2 {
             letter-spacing: 2px;
         }
+
         padding: 2rem 1rem;
     }
 
@@ -1175,9 +1177,10 @@ body {
     }
 
     .faq-section h2 {
-             h2{
+        h2 {
             letter-spacing: 2px;
         }
+
         font-size: 18px !important;
     }
 
