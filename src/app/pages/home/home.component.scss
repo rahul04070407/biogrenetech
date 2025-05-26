@@ -879,6 +879,24 @@ body {
     }
 }
 
+@media (min-width: 1041px) and (max-width: 1240px) {
+    .features-wrapper .features-container {
+        flex-direction: column;
+        align-items: center;
+
+        .features-image {
+            top: 0;
+            // left: 0;
+            margin-bottom: 20px;
+        }
+
+        .features-content {
+            padding: 0 20px;
+        }
+    }
+}
+
+
 @media (min-width: 992px) {
     .nav {
         position: relative;
