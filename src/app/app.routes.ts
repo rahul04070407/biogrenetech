@@ -5,9 +5,10 @@ import { HomeComponent } from './pages/home/home.component';
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    redirectTo: 'home',
+    pathMatch: 'full'
   },
-    {
+  {
     path: 'home',
     component: HomeComponent,
   },
@@ -19,7 +20,7 @@ export const routes: Routes = [
     path: 'contact',
     component: ComingSoonComponent,
   },
-    {
+  {
     path: 'services',
     component: ComingSoonComponent,
   },
