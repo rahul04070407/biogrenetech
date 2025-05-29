@@ -134,7 +134,7 @@ export class ContactUsComponent implements OnInit {
         setTimeout(() => {
           this.submitSuccess = false;
           // this.ngOnInit()
-        }, 3000);
+        }, 2000);
         this.formData = {};
         this.isSubmitting = false
         form.resetForm();
