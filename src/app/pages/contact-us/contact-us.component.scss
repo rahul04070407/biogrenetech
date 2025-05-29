@@ -13,7 +13,7 @@
     height: 100%;
     pointer-events: none;
     overflow: hidden;
-    z-index: 0;
+    z-index: 2;
 
     .circle,
     .triangle {
@@ -59,14 +59,23 @@
   }
 
   .form-container {
-    position: relative;
-    z-index: 1;
-    width: 85%;
-    margin: 0 auto;
-    background: #f9f9f9;
-    border-radius: 16px;
-    padding: 50px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    // position: relative;
+    // z-index: 1;
+    // width: 85%;
+    // margin: 0 auto;
+    // background: #f9f9f9;
+    // border-radius: 16px;
+    // padding: 50px;
+    // box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+     position: relative;
+  z-index: 1;
+  width: 85%;
+  margin: 0 auto;
+  background: transparent; 
+  backdrop-filter: none;   
+  border-radius: 16px;
+  padding: 50px;
+  box-shadow: none; 
 
     h2 {
       font-size: 30px;
