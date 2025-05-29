@@ -14,7 +14,8 @@ export class ContactUsComponent implements OnInit{
  shapes: { type: string, style: any, class: string }[] = [];
 
   ngOnInit() {
-    const totalShapes = 15;
+ const totalShapes = window.innerWidth < 768 ? 10 : 20;
+
     for (let i = 0; i < totalShapes; i++) {
       const shapeType = this.getRandomShapeType();
       this.shapes.push({
@@ -61,8 +62,24 @@ private getShapeStyle(type: string): any {
   const rotation = `rotate(${Math.random() * 360}deg)`;
   const opacity = 0.15;
 
+const colors = [
+  '#e53935', // cherry red
+  '#1e88e5', // blue
+  '#fb8c00', // orange
+  '#43a047', // green
+  '#8e24aa', // purple
+  '#5e35b1', // violet
+  '#d81b60', // deep pink / cherry
+  '#00acc1', // teal
+  '#fdd835', // yellow
+  '#3949ab', // indigo
+];
+
+
+  const background = colors[Math.floor(Math.random() * colors.length)];
+
   if (type === 'circle' || type === 'semi-circle') {
-    const size = 40 + Math.random() * 80;
+    const size = 70 + Math.random() * 80;
     return {
       top,
       left,
@@ -71,13 +88,13 @@ private getShapeStyle(type: string): any {
       opacity,
       transform: rotation,
       borderRadius: type === 'circle' ? '50%' : '0',
-      background: type === 'circle' ? '#8bc34a' : '#aed581',
+      background,
       clipPath: type === 'semi-circle' ? 'ellipse(50% 50% at 50% 100%)' : 'none'
     };
   }
 
   if (type === 'triangle') {
-    const size = 50 + Math.random() * 80;
+    const size = 80 + Math.random() * 80;
     const half = size / 2;
     return {
       top,
@@ -88,7 +105,7 @@ private getShapeStyle(type: string): any {
       transform: rotation,
       borderLeft: `${half}px solid transparent`,
       borderRight: `${half}px solid transparent`,
-      borderBottom: `${size}px solid #4caf50`,
+      borderBottom: `${size}px solid ${background}`,
     };
   }
 
@@ -101,7 +118,7 @@ private getShapeStyle(type: string): any {
       height: `${size}px`,
       opacity,
       transform: rotation,
-      background: '#66bb6a',
+      background,
       clipPath: 'path("M 0 100 Q 50 0, 100 100 Z")',
     };
   }
@@ -115,13 +132,13 @@ private getShapeStyle(type: string): any {
       height: `${size}px`,
       opacity,
       transform: rotation,
-      background: '#7cb342',
+      background,
       clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
     };
   }
 
   if (type === 'hexagon' || type === 'half-hexagon') {
-    const width = 80 + Math.random() * 40;
+    const width = 40 + Math.random() * 40;
     const height = width * 0.55;
     return {
       top,
@@ -130,7 +147,7 @@ private getShapeStyle(type: string): any {
       height: `${height}px`,
       opacity,
       transform: rotation,
-      background: type === 'hexagon' ? '#558b2f' : '#9ccc65',
+      background,
       clipPath: type === 'hexagon'
         ? 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)'
         : 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%)',
@@ -139,6 +156,7 @@ private getShapeStyle(type: string): any {
 
   return {};
 }
+
 
   // Simulating backend data
   questions = [
