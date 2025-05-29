@@ -20,15 +20,7 @@ export class ContactUsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.ContactService.getAllActiveQuestions().subscribe(
-      data => {
-
-        console.log('Questions:', data);
-      },
-      error => {
-        console.error('API Error:', error);
-      }
-    );
+ this.loadQuestions()
 
     const totalShapes = window.innerWidth < 768 ? 10 : 20;
 
@@ -41,6 +33,44 @@ export class ContactUsComponent implements OnInit {
       });
     }
   }
+
+  apiQuestions: any[] = [];
+  formData: { [key: string]: any } = {};
+   private loadQuestions() {
+    this.ContactService.getAllActiveQuestions().subscribe({
+      next: (response) => {
+        if (response.status === 200 && response.data) {
+          this.apiQuestions = response.data;
+        }
+      },
+      error: (err) => console.error('API Error:', err)
+    });
+  }
+
+  isFullWidth(question: any): boolean {
+    return question.qsnType !== 'T';
+  }
+
+  onCheckboxChange(event: Event, questionName: string) {
+    const input = event.target as HTMLInputElement;
+    const value = input.value;
+    
+    if (!this.formData[questionName]) {
+      this.formData[questionName] = [];
+    }
+
+    if (input.checked) {
+      this.formData[questionName].push(value);
+    } else {
+      this.formData[questionName] = this.formData[questionName].filter((v: string) => v !== value);
+    }
+  }
+
+  onSubmit() {
+    console.log('Form Submitted:', this.formData);
+    alert('Form submitted successfully!');
+  }
+
 
   private getRandomShapeType(): string {
     const types = [
@@ -249,30 +279,30 @@ export class ContactUsComponent implements OnInit {
     }
   ];
 
-  formData: { [key: string]: any } = {};
+  // formData: { [key: string]: any } = {};
 
-  // Add or remove checkboxes from formData
-  onCheckboxChange(event: Event, name: string) {
-    const input = event.target as HTMLInputElement;
-    if (!this.formData[name]) {
-      this.formData[name] = [];
-    }
+  // // Add or remove checkboxes from formData
+  // onCheckboxChange(event: Event, name: string) {
+  //   const input = event.target as HTMLInputElement;
+  //   if (!this.formData[name]) {
+  //     this.formData[name] = [];
+  //   }
 
-    if (input.checked) {
-      this.formData[name].push(input.value);
-    } else {
-      this.formData[name] = this.formData[name].filter((val: string) => val !== input.value);
-    }
-  }
+  //   if (input.checked) {
+  //     this.formData[name].push(input.value);
+  //   } else {
+  //     this.formData[name] = this.formData[name].filter((val: string) => val !== input.value);
+  //   }
+  // }
 
-  // Optional: mark full-width fields for layout
-  isFullWidth(question: any): boolean {
-    return question.type !== 'T' || question.inputType === 'textarea';
-  }
+  // // Optional: mark full-width fields for layout
+  // isFullWidth(question: any): boolean {
+  //   return question.type !== 'T' || question.inputType === 'textarea';
+  // }
 
-  onSubmit() {
-    console.log('Form Submitted:', this.formData);
-    alert('Form submitted successfully!');
-    // You can send `this.formData` to your backend here
-  }
+  // onSubmit() {
+  //   console.log('Form Submitted:', this.formData);
+  //   alert('Form submitted successfully!');
+  //   // You can send `this.formData` to your backend here
+  // }
 }

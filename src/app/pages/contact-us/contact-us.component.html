@@ -1,49 +1,46 @@
 <section class="contact-us">
-  <!-- <div class="background-shapes">
-    <div class="circle"></div>
-    <div class="triangle"></div>
-    <div class="circle small"></div>
-    <div class="triangle small"></div>
-  </div> -->
-
-<div class="background-shapes">
-  <ng-container *ngFor="let shape of shapes">
-    <div [ngClass]="shape.class" [ngStyle]="shape.style"></div>
-  </ng-container>
-</div>
-
-
+  <div class="background-shapes">
+    <ng-container *ngFor="let shape of shapes">
+      <div [ngClass]="shape.class" [ngStyle]="shape.style"></div>
+    </ng-container>
+  </div>
 
   <div class="form-container">
     <h2>Book Your Demo</h2>
 
     <form (ngSubmit)="onSubmit()" #demoForm="ngForm">
-      <ng-container *ngFor="let question of questions">
-        <div class="form-field" [ngClass]="{ 'full-width': isFullWidth(question) }">
-          <label [attr.for]="question.name">{{ question.label }}</label>
+      <ng-container *ngFor="let q of apiQuestions">
+        <div class="form-field" [ngClass]="{ 'full-width': isFullWidth(q) }">
+          <label [attr.for]="'q' + q.id">{{ q.name }}</label>
 
-          <!-- T: Text or Textarea -->
-          <input *ngIf="question.type === 'T' && question.inputType !== 'textarea'"
-            [type]="question.inputType || 'text'" class="form-control" [name]="question.name"
-            [(ngModel)]="formData[question.name]" [id]="question.name" />
+          <!-- Text Input -->
+          <input *ngIf="q.qsnType === 'T'"
+            type="text"
+            class="form-control"
+            [name]="'q' + q.id"
+            [(ngModel)]="formData['q' + q.id]"
+            [id]="'q' + q.id" />
 
-          <textarea *ngIf="question.type === 'T' && question.inputType === 'textarea'" class="form-control" rows="3"
-            [name]="question.name" [(ngModel)]="formData[question.name]" [id]="question.name"></textarea>
-
-          <!-- R: Radio -->
-          <div *ngIf="question.type === 'R'" class="radio-group">
-            <label *ngFor="let opt of question.options" class="radio-option">
-              <input type="radio" [name]="question.name" [value]="opt" [(ngModel)]="formData[question.name]" />
-              <span>{{ opt }}</span>
+          <!-- Radio Buttons -->
+          <div *ngIf="q.qsnType == 'R' && !q.multipleChoose" class="radio-group">
+            <label *ngFor="let opt of q.optionLists" class="radio-option">
+              <input 
+                type="radio" 
+                [name]="'q' + q.id" 
+                [value]="opt.name"
+                [(ngModel)]="formData['q' + q.id]" />
+              <span>{{ opt.name }}</span>
             </label>
           </div>
 
-          <!-- C: Checkbox -->
-          <div *ngIf="question.type === 'C'" class="checkbox-group">
-            <label *ngFor="let opt of question.options" class="checkbox-option">
-              <input type="checkbox" [name]="question.name + '_' + opt" [value]="opt"
-                (change)="onCheckboxChange($event, question.name)" />
-              <span>{{ opt }}</span>
+          <!-- Checkboxes -->
+          <div *ngIf="q.qsnType == 'C' && q.multipleChoose" class="checkbox-group">
+            <label *ngFor="let opt of q.optionLists" class="checkbox-option">
+              <input 
+                type="checkbox" 
+                [value]="opt.name"
+                (change)="onCheckboxChange($event, 'q' + q.id)" />
+              <span>{{ opt.name }}</span>
             </label>
           </div>
         </div>
