@@ -130,17 +130,21 @@ export class ContactUsComponent implements OnInit {
     this.ContactService.addQuery(submissionData).subscribe({
       next: (response) => {
         this.submitSuccess = true;
+
         setTimeout(() => {
           this.submitSuccess = false;
+          // this.ngOnInit()
         }, 3000);
-
+        this.formData = {};
         this.isSubmitting = false
         form.resetForm();
-
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]') as NodeListOf<HTMLInputElement>;
+        checkboxes.forEach(cb => cb.checked = false);
 
       },
       error: (error) => {
-        console.error('API Error:', error);
+        // console.error('API Error:', error);
+        this.isSubmitting = false
         alert('Something went wrong while submitting the form.');
       }
     });
