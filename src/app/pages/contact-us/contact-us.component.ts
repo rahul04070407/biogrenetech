@@ -14,8 +14,10 @@ export class ContactUsComponent {
   questions = [
     { type: 'T', label: 'Full Name', name: 'fullName', inputType: 'text', required: true },
     { type: 'T', label: 'Company Name', name: 'company', inputType: 'text' },
+    { type: 'T', label: 'Phone Number', name: 'phone', inputType: 'text' },
+    { type: 'T', label: 'Business Email Address', name: 'email', inputType: 'email', required: true },
 
-  
+
     {
       type: 'R',
       label: 'What best describes your business?',
@@ -29,8 +31,7 @@ export class ContactUsComponent {
         'Other'
       ]
     },
-  { type: 'T', label: 'Phone Number', name: 'phone', inputType: 'text' },
-   { type: 'T', label: 'Business Email Address', name: 'email', inputType: 'email', required: true },
+
     {
       type: 'C',
       label: 'Which features are you most interested in?',
