@@ -1,10 +1,18 @@
 <section class="contact-us">
-  <div class="background-shapes">
+  <!-- <div class="background-shapes">
     <div class="circle"></div>
     <div class="triangle"></div>
     <div class="circle small"></div>
     <div class="triangle small"></div>
-  </div>
+  </div> -->
+
+<div class="background-shapes">
+  <ng-container *ngFor="let shape of shapes">
+    <div [ngClass]="shape.class" [ngStyle]="shape.style"></div>
+  </ng-container>
+</div>
+
+
 
   <div class="form-container">
     <h2>Book Your Demo</h2>

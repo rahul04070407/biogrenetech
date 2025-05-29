@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,137 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.scss',
 })
-export class ContactUsComponent {
+export class ContactUsComponent implements OnInit{
+
+ shapes: { type: string, style: any, class: string }[] = [];
+
+  ngOnInit() {
+    const totalShapes = 15;
+    for (let i = 0; i < totalShapes; i++) {
+      const shapeType = this.getRandomShapeType();
+      this.shapes.push({
+        type: shapeType,
+        class: this.getShapeClass(shapeType),
+        style: this.getShapeStyle(shapeType),
+      });
+    }
+  }
+
+private getRandomShapeType(): string {
+  const types = [
+    'circle',
+    'semi-circle',
+    'triangle',
+    'half-triangle',
+    'curved-triangle',
+    'kite',
+    'hexagon',
+    'half-hexagon'
+  ];
+  return types[Math.floor(Math.random() * types.length)];
+}
+
+private getShapeClass(type: string): string {
+  switch (type) {
+    case 'circle': return 'circle';
+    case 'semi-circle': return 'circle half';
+    case 'triangle': return 'triangle';
+    case 'half-triangle': return 'triangle half';
+    case 'curved-triangle': return 'triangle curved';
+    case 'kite': return 'kite';
+    case 'hexagon': return 'hexagon';
+    case 'half-hexagon': return 'hexagon half';
+    default: return '';
+  }
+}
+
+
+
+private getShapeStyle(type: string): any {
+  const top = `${Math.random() * 90}%`;
+  const left = `${Math.random() * 90}%`;
+  const rotation = `rotate(${Math.random() * 360}deg)`;
+  const opacity = 0.15;
+
+  if (type === 'circle' || type === 'semi-circle') {
+    const size = 40 + Math.random() * 80;
+    return {
+      top,
+      left,
+      width: `${size}px`,
+      height: `${size}px`,
+      opacity,
+      transform: rotation,
+      borderRadius: type === 'circle' ? '50%' : '0',
+      background: type === 'circle' ? '#8bc34a' : '#aed581',
+      clipPath: type === 'semi-circle' ? 'ellipse(50% 50% at 50% 100%)' : 'none'
+    };
+  }
+
+  if (type === 'triangle') {
+    const size = 50 + Math.random() * 80;
+    const half = size / 2;
+    return {
+      top,
+      left,
+      width: '0',
+      height: '0',
+      opacity,
+      transform: rotation,
+      borderLeft: `${half}px solid transparent`,
+      borderRight: `${half}px solid transparent`,
+      borderBottom: `${size}px solid #4caf50`,
+    };
+  }
+
+  if (type === 'curved-triangle') {
+    const size = 60 + Math.random() * 60;
+    return {
+      top,
+      left,
+      width: `${size}px`,
+      height: `${size}px`,
+      opacity,
+      transform: rotation,
+      background: '#66bb6a',
+      clipPath: 'path("M 0 100 Q 50 0, 100 100 Z")',
+    };
+  }
+
+  if (type === 'kite') {
+    const size = 60 + Math.random() * 60;
+    return {
+      top,
+      left,
+      width: `${size}px`,
+      height: `${size}px`,
+      opacity,
+      transform: rotation,
+      background: '#7cb342',
+      clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
+    };
+  }
+
+  if (type === 'hexagon' || type === 'half-hexagon') {
+    const width = 80 + Math.random() * 40;
+    const height = width * 0.55;
+    return {
+      top,
+      left,
+      width: `${width}px`,
+      height: `${height}px`,
+      opacity,
+      transform: rotation,
+      background: type === 'hexagon' ? '#558b2f' : '#9ccc65',
+      clipPath: type === 'hexagon'
+        ? 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)'
+        : 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%)',
+    };
+  }
+
+  return {};
+}
+
   // Simulating backend data
   questions = [
     { type: 'T', label: 'Full Name', name: 'fullName', inputType: 'text', required: true },
