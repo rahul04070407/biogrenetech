@@ -8,7 +8,7 @@
   <div class="form-container">
     <h2>Book Your Demo</h2>
 
-    <form (ngSubmit)="onSubmit()" #demoForm="ngForm">
+    <form (ngSubmit)="onSubmit(demoForm)" #demoForm="ngForm">
       <ng-container *ngFor="let q of apiQuestions">
         <div class="form-field" [ngClass]="{ 'full-width': isFullWidth(q) }">
           <label [attr.for]="'q' + q.id">{{ q.name }}</label>
@@ -45,8 +45,13 @@
           </div>
         </div>
       </ng-container>
+       <button type="submit" [disabled]="isSubmitting || demoForm.invalid">
+    {{ isSubmitting ? 'Submitting...' : 'Submit' }}
+  </button>
 
-      <button type="submit">Submit</button>
+  <p *ngIf="submitSuccess" class="success-message">Form submitted successfully!</p>
+
+      <!-- <button type="submit">Submit</button> -->
     </form>
   </div>
 </section>

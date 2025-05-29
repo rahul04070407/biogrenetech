@@ -15,12 +15,13 @@ export class ContactUsComponent implements OnInit {
   constructor(private ContactService: ContactService) {
 
   }
-
+  isSubmitting = false;
+  submitSuccess = false;
   shapes: { type: string, style: any, class: string }[] = [];
 
   ngOnInit() {
 
- this.loadQuestions()
+    this.loadQuestions()
 
     const totalShapes = window.innerWidth < 768 ? 10 : 20;
 
@@ -36,7 +37,7 @@ export class ContactUsComponent implements OnInit {
 
   apiQuestions: any[] = [];
   formData: { [key: string]: any } = {};
-   private loadQuestions() {
+  private loadQuestions() {
     this.ContactService.getAllActiveQuestions().subscribe({
       next: (response) => {
         if (response.status === 200 && response.data) {
@@ -54,7 +55,7 @@ export class ContactUsComponent implements OnInit {
   onCheckboxChange(event: Event, questionName: string) {
     const input = event.target as HTMLInputElement;
     const value = input.value;
-    
+
     if (!this.formData[questionName]) {
       this.formData[questionName] = [];
     }
@@ -66,9 +67,84 @@ export class ContactUsComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    console.log('Form Submitted:', this.formData);
-    alert('Form submitted successfully!');
+  onSubmit(form: any) {
+    // Transform formData into the desired structure
+    const submissionData = this.apiQuestions.map(question => {
+      const questionKey = `q${question.id}`;
+      const answer = this.formData[questionKey];
+
+      // For text questions
+      if (question.qsnType === 'T') {
+        return {
+          id: question.id,
+          ans: answer || ''
+        };
+      }
+
+      // For single-select (radio) questions
+      if (question.qsnType === 'R' && !question.multipleChoose) {
+        if (!answer) {
+          return {
+            id: question.id,
+            Ans: '',
+            ansid: null
+          };
+        }
+
+        const selectedOption = question.optionLists.find((opt: any) => opt.name === answer);
+        return {
+          id: question.id,
+          ans: answer,
+          ansid: selectedOption ? selectedOption.id : null
+        };
+      }
+
+      // For multi-select (checkbox) questions
+      if (question.qsnType === 'C' && question.multipleChoose) {
+        const answers = Array.isArray(answer) ? answer : [];
+        const ansIds: number[] = [];
+
+        answers.forEach((ans: string) => {
+          const option = question.optionLists.find((opt: any) => opt.name === ans);
+          if (option) {
+            ansIds.push(option.id);
+          }
+        });
+
+        return {
+          id: question.id,
+          ans: answers,
+          ansid: ansIds
+        };
+      }
+
+      // Default return for unknown types
+      return {
+        id: question.id,
+        ans: answer || ''
+      };
+    });
+    this.isSubmitting = true;
+    this.submitSuccess = false;
+    console.log('Form Submitted:', submissionData);
+    this.ContactService.addQuery(submissionData).subscribe({
+      next: (response) => {
+        this.submitSuccess = true;
+        setTimeout(() => {
+          this.submitSuccess = false;
+        }, 3000);
+
+        this.isSubmitting = false
+        form.resetForm();
+
+
+      },
+      error: (error) => {
+        console.error('API Error:', error);
+        alert('Something went wrong while submitting the form.');
+      }
+    });
+
   }
 
 
