@@ -49,7 +49,7 @@
         color: #2f7033;
         text-decoration: none;
         font-weight: 700;
-        font-size: 20px;
+        font-size: 15px;
         text-transform: uppercase;
         font-family: 'Oswald', sans-serif;
 
@@ -140,11 +140,12 @@
         }
     }
 
-      @media (max-width: 1300px) {
-           .desktop-nav {
+    @media (max-width: 1300px) {
+        .desktop-nav {
             gap: 11rem;
         }
-             .logo-container {
+
+        .logo-container {
 
             .logo {
                 max-height: 130px;
@@ -154,10 +155,11 @@
         }
     }
 
-    @media (max-width: 1040px) {
-           .desktop-nav {
+    @media (max-width: 1071px) {
+        .desktop-nav {
             gap: 4rem;
         }
+
         .logo-container {
 
             .logo {
@@ -165,6 +167,9 @@
                 width: auto;
                 margin-left: 0px;
             }
+        }
+        .nav-link{
+            font-size: 14px;
         }
     }
 
