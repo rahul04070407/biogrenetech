@@ -22,7 +22,12 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngAfterViewInit() {
-    // Listen for router fragment changes
+    const initialFragment = this.route.snapshot.fragment;
+    if (initialFragment === 'about' && this.aboutSection) {
+      setTimeout(() => {
+        this.aboutSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
     this.routerSub = this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -34,7 +39,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
         });
       });
 
-    // Observe if aboutSection leaves viewport
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting && this.route.snapshot.fragment === 'about') {
@@ -43,7 +47,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
             fragment: undefined,
             replaceUrl: true
           });
-
         }
       });
     }, { threshold: 0.1 });
@@ -57,4 +60,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     this.routerSub?.unsubscribe();
     this.observer?.disconnect();
   }
+
+ goToContact() {
+  this.router.navigate(['/contact']);
+}
+
 }
