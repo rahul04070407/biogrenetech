@@ -18,7 +18,7 @@ export class ContactUsComponent implements OnInit {
   isSubmitting = false;
   submitSuccess = false;
   shapes: { type: string, style: any, class: string }[] = [];
-
+  mandatoryErrors: { [key: string]: boolean } = {};
   ngOnInit() {
 
     this.loadQuestions()
@@ -68,112 +68,75 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit(form: any) {
-    // Transform formData into the desired structure
-    // const submissionData = this.apiQuestions.map(question => {
-    //   const questionKey = `q${question.id}`;
-    //   const answer = this.formData[questionKey];
+    this.mandatoryErrors = {}; // Clear previous errors
 
-    //   // For text questions
-    //   if (question.qsnType === 'T') {
-    //     return {
-    //       id: question.id,
-    //       ans: answer || ''
-    //     };
-    //   }
+    let hasError = false;
 
-    //   // For single-select (radio) questions
-    //   if (question.qsnType === 'R' && !question.multipleChoose) {
-    //     if (!answer) {
-    //       return {
-    //         id: question.id,
-    //         Ans: '',
-    //         ansid: null
-    //       };
-    //     }
-
-    //     const selectedOption = question.optionLists.find((opt: any) => opt.name === answer);
-    //     return {
-    //       id: question.id,
-    //       ans: answer,
-    //       ansid: selectedOption ? selectedOption.id : null
-    //     };
-    //   }
-
-    //   // For multi-select (checkbox) questions
-    //   if (question.qsnType === 'C' && question.multipleChoose) {
-    //     const answers = Array.isArray(answer) ? answer : [];
-    //     const ansIds: number[] = [];
-
-    //     answers.forEach((ans: string) => {
-    //       const option = question.optionLists.find((opt: any) => opt.name === ans);
-    //       if (option) {
-    //         ansIds.push(option.id);
-    //       }
-    //     });
-
-    //     return {
-    //       id: question.id,
-    //       ans: answers,
-    //       ansid: ansIds
-    //     };
-    //   }
-
-    //   // Default return for unknown types
-    //   return {
-    //     id: question.id,
-    //     ans: answer || ''
-    //   };
-    // });
-    const submissionData = this.apiQuestions.map(question => {
-  const questionKey = `q${question.id}`;
-  const answer = this.formData[questionKey];
-
-  // Prepare the base object
-  const submissionItem: any = {
-    id: question.id,
-    qsn: question.name, // Include the question name
-  };
-
-  // For text questions (T)
-  if (question.qsnType === 'T') {
-    submissionItem.ans = answer ? [answer] : [];
-  }
-  // For single-select (radio) questions (R) without multipleChoose
-  else if (question.qsnType === 'R' && !question.multipleChoose) {
-    if (answer) {
-      const selectedOption = question.optionLists.find((opt: any) => opt.name === answer);
-      submissionItem.ans = [answer];
-      if (selectedOption) {
-        submissionItem.ansid = [selectedOption.id];
-      }
-    } else {
-      submissionItem.ans = [];
-    }
-  }
-  // For multi-select (checkbox) questions (C) with multipleChoose
-  else if (question.qsnType === 'C' && question.multipleChoose) {
-    const answers = Array.isArray(answer) ? answer : [];
-    submissionItem.ans = answers;
-
-    const ansIds: number[] = [];
-    answers.forEach((ans: string) => {
-      const option = question.optionLists.find((opt: any) => opt.name === ans);
-      if (option) {
-        ansIds.push(option.id);
+    // Check for mandatory questions
+    this.apiQuestions.forEach((q: any) => {
+      if (q.mandatory) { // spelling per your API (should be 'mandatory' ideally)
+        const answer = this.formData['q' + q.id];
+        if (!answer || (Array.isArray(answer) && answer.length === 0)) {
+          this.mandatoryErrors['q' + q.id] = true;
+          hasError = true;
+        }
       }
     });
 
-    if (ansIds.length > 0) {
-      submissionItem.ansid = ansIds;
+    if (hasError) {
+      // alert('Please fill in all mandatory fields.');
+      return;
     }
-  }
-  // Fallback for any other types
-  else {
-    submissionItem.ans = answer ? [answer] : [];
-  }
+    const submissionData = this.apiQuestions.map(question => {
+      const questionKey = `q${question.id}`;
+      const answer = this.formData[questionKey];
 
-  return submissionItem;
-});
+      // Prepare the base object
+      const submissionItem: any = {
+        id: question.id,
+        qsn: question.name, // Include the question name
+      };
+
+      // For text questions (T)
+      if (question.qsnType === 'T') {
+        submissionItem.ans = answer ? [answer] : [];
+      }
+      // For single-select (radio) questions (R) without multipleChoose
+      else if (question.qsnType === 'R' && !question.multipleChoose) {
+        if (answer) {
+          const selectedOption = question.optionLists.find((opt: any) => opt.name === answer);
+          submissionItem.ans = [answer];
+          if (selectedOption) {
+            submissionItem.ansid = [selectedOption.id];
+          }
+        } else {
+          submissionItem.ans = [];
+        }
+      }
+      // For multi-select (checkbox) questions (C) with multipleChoose
+      else if (question.qsnType === 'C' && question.multipleChoose) {
+        const answers = Array.isArray(answer) ? answer : [];
+        submissionItem.ans = answers;
+
+        const ansIds: number[] = [];
+        answers.forEach((ans: string) => {
+          const option = question.optionLists.find((opt: any) => opt.name === ans);
+          if (option) {
+            ansIds.push(option.id);
+          }
+        });
+
+        if (ansIds.length > 0) {
+          submissionItem.ansid = ansIds;
+        }
+      }
+      // Fallback for any other types
+      else {
+        submissionItem.ans = answer ? [answer] : [];
+      }
+
+      return submissionItem;
+    });
 
     this.isSubmitting = true;
     this.submitSuccess = false;

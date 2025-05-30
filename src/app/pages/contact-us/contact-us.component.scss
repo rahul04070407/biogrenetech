@@ -2,7 +2,7 @@
   position: relative;
   background: #ffffff;
   min-height: 85vh;
-  padding: 80px 20px;
+  padding: 0px 20px;
   overflow: hidden;
 
 //   .background-shapes {
@@ -321,4 +321,9 @@
       grid-template-columns: 1fr !important;
     }
   }
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
 }
