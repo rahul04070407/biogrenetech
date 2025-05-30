@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ContactService {
-  private baseUrl = 'http://192.168.13.62:8080/v-query/api/open/';
+  // private baseUrl = 'http://192.168.13.62:8080/v-query/api/open/';
+    private baseUrl = 'https://app.vareli.co.in/v-query/api/open/';
   private getEndpoint = 'findByAllActiveQuestion';
   private addEndpoint = 'addQuery';
 
