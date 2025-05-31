@@ -186,7 +186,7 @@ body {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        max-width: 900px; 
+        max-width: 900px;
         margin: 0 auto;
         gap: 40px;
         flex-wrap: wrap;
@@ -247,11 +247,11 @@ body {
 
         .impact-title {
             h2 {
-                font-size: 45px;
+                font-size: 60px;
                 font-family: 'Oswald', sans-serif;
                 color: #2f7033;
                 font-weight: 800;
-                margin-bottom: 5px;
+                margin-bottom: 21px;
                 letter-spacing: 4px;
             }
 
@@ -261,16 +261,44 @@ body {
                 color: #000;
                 margin-top: 0;
                 font-weight: 500;
+                margin-bottom: 18px;
             }
         }
 
         .impact-image {
+            position: relative;
+            display: inline-block;
+
             img {
                 width: 100%;
                 max-width: 400px;
                 height: auto;
+                display: block;
+            }
+
+            .arrow-image {
+                position: absolute;
+                top: -50px;
+                right: -7px;
+                width: 40px;
+                /* Adjust size as needed */
+                height: auto;
+                animation: arrow-bounce 2s infinite;
             }
         }
+
+        @keyframes arrow-bounce {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(10px);
+            }
+        }
+
 
         .impact-desc {
             p {
@@ -434,67 +462,70 @@ body {
 
 
 .bio-energy-info {
-  background-color: #DBF5E2;
-  padding: 80px 20px;
+    background-color: #DBF5E2;
+    padding: 80px 20px;
 
-  .container {
-    text-align: center; /* Centers the ul block below the text */
-  }
-
-  h3 {
-    font-size: 28px;
-    font-weight: 500;
-    color: #2f593c;
-    margin-bottom: 20px;
-    font-family: 'Oswald', sans-serif;
-
-    .highlight {
-      color: #1a8e3c;
-      font-weight: 700;
+    .container {
+        text-align: center;
+        /* Centers the ul block below the text */
     }
-  }
 
-  .description {
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
-    color: #444;
-    max-width: 700px;
-    margin: 0 auto 40px;
-    line-height: 1.7;
-  }
-
-  .features {
-    display: inline-block;   /* Key: Makes the ul itself center as a block */
-    text-align: left;        /* Left-align the li content */
-    max-width: 520px;
-    margin: 0 auto;
-    list-style: none;
-    padding: 0;
-
-    li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: #222;
-
-      i {
-        color: #1a8e3c;
-        font-size: 1.2rem;
-        margin-top: 3px;
-      }
-
-      span {
-        line-height: 1.4;
-      }
-
-      strong {
+    h3 {
+        font-size: 28px;
         font-weight: 500;
-        color: #1a8e3c;
-      }
+        color: #2f593c;
+        margin-bottom: 20px;
+        font-family: 'Oswald', sans-serif;
+
+        .highlight {
+            color: #1a8e3c;
+            font-weight: 700;
+        }
     }
-  }
+
+    .description {
+        font-family: 'Lato', sans-serif;
+        font-size: 16px;
+        color: #444;
+        max-width: 700px;
+        margin: 0 auto 40px;
+        line-height: 1.7;
+    }
+
+    .features {
+        display: inline-block;
+        /* Key: Makes the ul itself center as a block */
+        text-align: left;
+        /* Left-align the li content */
+        max-width: 520px;
+        margin: 0 auto;
+        list-style: none;
+        padding: 0;
+
+        li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #222;
+
+            i {
+                color: #1a8e3c;
+                font-size: 1.2rem;
+                margin-top: 3px;
+            }
+
+            span {
+                line-height: 1.4;
+            }
+
+            strong {
+                font-weight: 500;
+                color: #1a8e3c;
+            }
+        }
+    }
 }
 
 
@@ -514,7 +545,7 @@ body {
         font-weight: 700;
         color: #216c2a;
         // margin-bottom: 40px;
-            margin-bottom: 20px;
+        margin-bottom: 20px;
         font-family: 'Oswald', sans-serif;
         text-transform: uppercase;
         letter-spacing: 5px
@@ -524,7 +555,7 @@ body {
         .accordion-item {
             border: none;
             border-bottom: 1px solid #000;
-             font-family: 'Open Sans', sans-serif;
+            font-family: 'Open Sans', sans-serif;
 
             .accordion-button {
                 background-color: transparent;
@@ -1043,6 +1074,13 @@ body {
 
         max-width: 210px !important;
 
+    }
+
+    .biogrenetech-impact .impact-wrapper .impact-image .arrow-image {
+        position: absolute;
+        top: -50px;
+        right: -1px;
+        width: 30px;
     }
 
     .biogrenetech-impact .impact-wrapper .impact-title h2 {
