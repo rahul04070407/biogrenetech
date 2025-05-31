@@ -160,7 +160,7 @@ body {
 }
 
 .bi-list::before {
-    color: black !important;
+    color: white !important;
 }
 
 .hero-banner {
@@ -282,8 +282,8 @@ body {
 
 .foot-icon .bi {
 
-    background: #e4f5e7;
-    color: black;
+    background: #000;
+    color: white;
     padding: 10px;
     margin: 10px;
     border: 1px solid #e4f5e7;
@@ -1136,8 +1136,8 @@ body {
 }
 
 .footer {
-    background-color: #000;
-    color: white;
+    background-color: #DBF5E2;
+    color: #000;
     padding-top: 5rem;
     padding-bottom: 5rem;
 
@@ -1152,12 +1152,15 @@ body {
                 margin-bottom: 1rem;
 
                 h6 {
-                    font-weight: bold;
+                    font-weight: 700 !important;
+                    font-family: 'Open Sans', sans-serif;
                 }
 
                 p,
                 ul {
                     font-size: 0.875rem;
+                        font-family: 'Open Sans', sans-serif;
+                    font-weight: 400 !important;
                 }
 
                 ul {
@@ -1168,7 +1171,8 @@ body {
                         margin-bottom: 0.5rem;
 
                         a {
-                            color: white;
+                                font-family: 'Open Sans', sans-serif;
+                            color: #000 !important;
                             text-decoration: none;
 
                             &:hover {
@@ -1184,8 +1188,9 @@ body {
                     // justify-content: space-between;
 
                     a {
+                            font-family: 'Open Sans', sans-serif;
                         font-size: 1.25rem;
-                        color: white;
+                        color: #000;
                         margin-bottom: 0.5rem;
 
                         &:hover {
@@ -1197,7 +1202,11 @@ body {
         }
 
         hr {
-            border-color: #dee2e6;
+            border: none;
+            height: 4px;
+            background-color: #000;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
         }
 
         .small {
